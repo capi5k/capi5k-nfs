@@ -8,7 +8,6 @@ namespace :nfs do
 
   desc 'Deploy NFS on nodes'
   task :default do
-    puppet
     modules::install
     server
     client
@@ -28,12 +27,6 @@ namespace :nfs do
     apply_client
   end
 
-
-  task :puppet, :roles => [:nfs_server, :nfs_slave] do
-    set :user, "root"
-    run "apt-get update 2>/dev/null"
-    run "apt-get install -y puppet 2>/dev/null"
-  end
 
   namespace :modules do
     task :install, :roles => [:nfs_server, :nfs_slave] do
