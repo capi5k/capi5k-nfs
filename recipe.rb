@@ -31,6 +31,7 @@ namespace :nfs do
   namespace :modules do
     task :install, :roles => [:nfs_server, :nfs_slave] do
       set :user, "root"   
+      run "mkdir -p /etc/puppet/modules"
       upload("#{nfs_path}/module","/etc/puppet/modules/nfs", :via => :scp, :recursive => true)
       run "http_proxy='http://proxy:3128' https_proxy='http://proxy:3128' puppet module install --force puppetlabs/stdlib"
    end
