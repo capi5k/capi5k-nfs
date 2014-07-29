@@ -49,6 +49,7 @@ namespace :nfs do
     @shared = "#{nfs_exported}" 
     @uid = "#{uid}"
     @gid = "#{gid}"
+    @options = "#{nfs_export_options}"
     generate = renderer.result(binding)
     myFile = File.open("#{nfs_path}/tmp/nfs-server.pp", "w")
     myFile.write(generate)
@@ -72,7 +73,7 @@ namespace :nfs do
     @nfshost = "#{host}"
     @shared = "#{nfs_exported}"
     @local  = "#{nfs_local_mounted}"
-    @options = "#{nfs_options}"
+    @options = "#{nfs_mount_options}"
 
     generate = renderer.result(binding)
     myFile = File.open("#{nfs_path}/tmp/nfs-client.pp", "w")

@@ -13,5 +13,9 @@
     "test",
     "tests"
   ],
-  "exports": ["roles.rb"]
+  "exports": ["roles.rb"],
+  "dependencies" : 
+  {
+    "capi5k-puppet": "https://github.com/capi5k/capi5k-puppet/tarball/master"
+  }
 }

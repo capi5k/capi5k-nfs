@@ -1,6 +1,7 @@
 class {
   'nfs::server':
-    shared => "<%= @shared %>",
-    uid    => "<%= @uid %>",
-    gid    => "<%= @gid %>"
+    shared  => "<%= @shared %>",
+    uid     => "<%= @uid %>",
+    gid     => "<%= @gid %>",
+    options => "<%= @options %>"
 }

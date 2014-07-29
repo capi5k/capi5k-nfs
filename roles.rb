@@ -7,11 +7,11 @@ def role_nfs_slave
 end
 
 def nfs_exported
-    "/tmp/exported"
+    "/tmp/exported2"
 end
 
 def nfs_local_mounted
-    "/tmp/local_mounted"
+    "/tmp/local_mounted2"
 end
 
 def uid
@@ -23,6 +23,11 @@ def gid
 end
 
 
-def nfs_options
-  "rw,nfsvers=3,hard,intr,async,noatime,nodev,nosuid,auto,rsize=32768,wsize=32768"
+def nfs_mount_options
+  "rw,nfsvers=3,hard,intr,sync,noatime,nodev,nosuid,auto,rsize=32768,wsize=32768"
 end
+
+def nfs_export_options
+  "*(rw,sync,no_subtree_check)"
+end
+
